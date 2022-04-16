@@ -17,7 +17,7 @@ class Game(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zip = models.CharField(max_length=50)
-    img = models.CharField(max_length=50, null=True, blank=True)
+    img = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.title

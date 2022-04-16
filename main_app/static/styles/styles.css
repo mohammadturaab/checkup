@@ -3,10 +3,22 @@
 }
 
 img{
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+}
+
+.banner{
+    width: 100%;
+    height: auto;
 }
 
 a{
     text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    align-items: left;
+    justify-content: end;
 }

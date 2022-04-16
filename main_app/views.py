@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Game
+from django.views.generic import CreateView
+from django.urls import reverse
 
 # Create your views here.
 class Home(TemplateView):
@@ -19,4 +22,17 @@ class FindGame(TemplateView):
             context['games'] = Game.objects.all()
             context['header'] = 'All Games'
         return context
+
+class CreateGame(CreateView):
+    model = Game
+    fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img']
+    template_name = 'creategame.html'
+    def get_success_url(self):
+        return reverse('gamedetails', kwargs={'pk': self.object.pk})
+    def form_valid(self, form):
+        self.object = form.save(commit = False)
+        self.object.user = self.object.user
+        self.object.save()
+
+        return HttpResponseRedirect('/findgame/')
 

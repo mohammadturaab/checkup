@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Game
-from django.views.generic import CreateView
+from django.views.generic.edit import CreateView
+from django.views.generic import DetailView
 from django.urls import reverse
 
 # Create your views here.
@@ -35,4 +36,8 @@ class CreateGame(CreateView):
         self.object.save()
 
         return HttpResponseRedirect('/findgame/')
+
+class GameDetail(DetailView):
+    model: Game
+    template_name = 'gamedetail.html'
 

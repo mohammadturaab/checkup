@@ -38,6 +38,6 @@ class CreateGame(CreateView):
         return HttpResponseRedirect('/findgame/')
 
 class GameDetail(DetailView):
-    model: Game
-    template_name = "gamedetail.html"
+    model = Game
+    template_name = 'gamedetail.html'
 

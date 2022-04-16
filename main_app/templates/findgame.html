@@ -23,5 +23,6 @@
         <h3>{{game.date}} at {{game.time}}</h3>
         <h3>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h3>
         <button><a href="{% url 'gamedetail' game.pk %}">Details</a></button>
+        <br>
     {% endfor %}
 {% endblock %}

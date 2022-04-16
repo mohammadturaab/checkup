@@ -12,6 +12,8 @@
             <!-- <input type="submit" value="Search"/> -->
             <button type="submit" value="Search">Search</button>
         </div>
+            <button><a href="{% url 'findgame' %}">Clear Search</a></button>
+            <button><a href="{% url 'creategame' %}">Add Game</a></button>
     </form>
     <h2>{{header}}</h2>
     {% for game in games %}

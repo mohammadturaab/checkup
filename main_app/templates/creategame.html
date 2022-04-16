@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Setup a new game</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <button type="submit" value="Submit">Create</button>
+        <button type="submit" value="Submit">
+                <a href="/findgame">Cancel</a>
+        </button>
+    </form>
+{% endblock %}

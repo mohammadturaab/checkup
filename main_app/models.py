@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 GAME_TYPE = {
     ('Basketball', 'Basketball'),
     ('Football', 'Football'),
@@ -25,4 +24,3 @@ class Game(models.Model):
     
     class Meta:
         ordering = ['title']
-

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Pickup: {{game.game_type}}</h1>
+<img class="banner" src="{{game.img}}"/>
+<h1>Game Details</h1>
+<h2>{{title}}</h2>
+<h2>Game Type: {{game.game_type}}</h2>
+<h2>Time: {{game.time}}</h2>
+<h2>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h2>
+<h2>Group Joines: </h2>
+
+<button>Join</button>
+
+
+
+{% endblock %}

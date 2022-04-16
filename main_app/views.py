@@ -29,7 +29,7 @@ class CreateGame(CreateView):
     fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img']
     template_name = 'creategame.html'
     def get_success_url(self):
-        return reverse('gamedetails', kwargs={'pk': self.object.pk})
+        return reverse('gamedetail', kwargs={'pk': self.object.pk})
     def form_valid(self, form):
         self.object = form.save(commit = False)
         self.object.user = self.object.user
@@ -39,5 +39,5 @@ class CreateGame(CreateView):
 
 class GameDetail(DetailView):
     model: Game
-    template_name = 'gamedetail.html'
+    template_name = "gamedetail.html"
 

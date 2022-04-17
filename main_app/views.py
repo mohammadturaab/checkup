@@ -52,7 +52,7 @@ class GameDetail(DetailView):
 def profile(request, username):
     user = User.objects.get(username=username)
     game = Game.objects.filter(user=user)
-    return render(request, 'profile.html', {'username': username, 'game': game})
+    return render(request, 'profile.html', {'username': username, 'games': game})
 
 def signup_view(request):
     if request.method == 'POST':

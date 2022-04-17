@@ -54,6 +54,13 @@ class GameUpdate(UpdateView):
     template_name = 'gameupdate.html'
     success_url = '/findgame/'
 
+@method_decorator(login_required, name='dispatch')
+class GameDelete(DeleteView):
+    model = Game
+    fields = '__all__'
+    template_name = 'gameupdate_confirmation.html.html'
+    success_url = '/findgame/'
+
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)

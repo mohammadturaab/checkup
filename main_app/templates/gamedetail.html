@@ -14,5 +14,6 @@
     <button>Join</button>
     {% if user == game.user %}
         <button><a href="{% url 'gameupdate' game.pk %}">Update</a></button>
+        <button><a href="{% url 'gamedelete' game.pk %}">Delete</a></button>
     {% endif %}
 {% endblock %}

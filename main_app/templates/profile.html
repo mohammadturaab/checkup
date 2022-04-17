@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>{{user.first_name}}</h1>
+<h3>{{username}}</h3>
+
+{% for game in games %}
+        <img src="{{game.img}}"/>
+        <h3>{{game.title}}</h3>
+        <h3>{{game.game_type}}</h3>
+        <h3>{{game.date}} at {{game.time}}</h3>
+        <h3>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h3>
+        <button><a href="{% url 'gamedetail' game.pk %}">Details</a></button>
+        <br>
+    {% endfor %}
+
+{% endblock %}

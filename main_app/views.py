@@ -7,6 +7,8 @@ from django.views.generic import DetailView
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 class Home(TemplateView):
@@ -25,7 +27,8 @@ class FindGame(TemplateView):
             context['games'] = Game.objects.all()
             context['header'] = 'All Games'
         return context
-
+        
+@method_decorator(login_required, name='dispatch')
 class CreateGame(CreateView):
     model = Game
     fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img']

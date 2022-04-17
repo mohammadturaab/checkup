@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from .models import Game
 from django.contrib.auth.models import User
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.urls import reverse
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .forms import RegisterUserForm
@@ -47,6 +46,13 @@ class CreateGame(CreateView):
 class GameDetail(DetailView):
     model = Game
     template_name = 'gamedetail.html'
+
+@method_decorator(login_required, name='dispatch')
+class GameUpdate(UpdateView):
+    model = Game
+    fields = '__all__'
+    template_name = 'gameupdate.html'
+    success_url = '/findgame/'
 
 @login_required
 def profile(request, username):

@@ -12,5 +12,7 @@
     <h2>People Joined: </h2>
 
     <button>Join</button>
-
+    {% if user.is_authenticated %}
+        <a href="{% url 'gameupdate' game.pk %}">Update</a>
+    {% endif %}
 {% endblock %}

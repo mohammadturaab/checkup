@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Game
+from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from django.urls import reverse
@@ -27,7 +28,7 @@ class FindGame(TemplateView):
             context['games'] = Game.objects.all()
             context['header'] = 'All Games'
         return context
-        
+
 @method_decorator(login_required, name='dispatch')
 class CreateGame(CreateView):
     model = Game
@@ -45,6 +46,12 @@ class CreateGame(CreateView):
 class GameDetail(DetailView):
     model = Game
     template_name = 'gamedetail.html'
+
+@login_required
+def profile(request, username):
+    user = User.objects.get(username=username)
+    game = FindGame.objects.filter(user=user)
+    return render(request, 'profile.html', {'username': username, 'game': game})
 
 def signup_view(request):
     if request.method == 'POST':

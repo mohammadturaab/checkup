@@ -35,13 +35,13 @@ class CreateGame(CreateView):
     model = Game
     fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img']
     template_name = 'creategame.html'
-    def get_success_url(self):
-        return reverse('gamedetail', kwargs={'pk': self.object.pk})
+
+    # def get_success_url(self):
+    #     return reverse('gamedetail', kwargs={'pk': self.object.pk})
     def form_valid(self, form):
         self.object = form.save(commit = False)
-        self.object.user = self.object.user
+        self.object.user = self.request.user
         self.object.save()
-
         return HttpResponseRedirect('/findgame/')
 
 class GameDetail(DetailView):

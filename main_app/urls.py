@@ -9,5 +9,5 @@ urlpatterns = [
     path('findgame/<int:pk>/', views.GameDetail.as_view(), name="gamedetail"),
     #LOGIN URLS
     path('accounts/signup/', views.signup_view, name="signup"),
-    path('user/<username>', views.profile, name='profile'),
+    path('user/<username>/', views.profile, name='profile'),
 ]

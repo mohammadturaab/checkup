@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from django.urls import reverse
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, RegisterUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -50,12 +50,12 @@ class GameDetail(DetailView):
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)
-    game = FindGame.objects.filter(user=user)
+    game = Game.objects.filter(user=user)
     return render(request, 'profile.html', {'username': username, 'game': game})
 
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterUserForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -64,6 +64,6 @@ def signup_view(request):
         else:
             return render(request, 'signup.html', {'form': form})    
     else:
-        form = UserCreationForm()
+        form = RegisterUserForm()
         return render(request, 'signup.html', {'form': form})
 

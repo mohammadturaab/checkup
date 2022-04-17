@@ -16,10 +16,11 @@
         <a href="/findgame">Find Game</a>
     {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">Log out</a>
-        <a href="{% url 'profile' user.username %}">Profile</a>
-    {% eles %}
+        <a href="/user/{{user.username}}">Profile</a>
+    {% else %}
         <a href="{% url 'login' %}">Log in</a>
         <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
     </nav>
   {% block content %}  
 

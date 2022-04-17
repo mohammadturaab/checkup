@@ -5,6 +5,8 @@ from .models import Game
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from django.urls import reverse
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 class Home(TemplateView):
@@ -40,4 +42,18 @@ class CreateGame(CreateView):
 class GameDetail(DetailView):
     model = Game
     template_name = 'gamedetail.html'
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            print('HEY', user.username)
+            return HttpResponseRedirect('/user/'+str(user))
+        else:
+            return render(request, 'signup.html', {'form': form})    
+    else:
+        form = UserCreationForm()
+        return render(request, 'signup.html', {'form': form})
 

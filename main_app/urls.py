@@ -6,4 +6,5 @@ urlpatterns = [
     path('findgame/', views.FindGame.as_view(), name="findgame"),
     path('creategame/', views.CreateGame.as_view(), name="creategame"),
     path('findgame/<int:pk>/', views.GameDetail.as_view(), name="gamedetail"),
+    #LOGIN URLS
 ]

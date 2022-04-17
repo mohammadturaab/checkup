@@ -6,10 +6,11 @@ from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from django.urls import reverse
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, RegisterUserForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from .forms import RegisterUserForm
 
 # Create your views here.
 class Home(TemplateView):

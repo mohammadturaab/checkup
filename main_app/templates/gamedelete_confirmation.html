@@ -8,7 +8,7 @@
    <!-- confirm cat delete -->
     <input type="submit" value="Confirm" />
     <!-- Redirect back to detail on cancel -->
-    <a href="{% url 'gamedetail' game.pk %}">Cancel</a>
+    <button><a href="{% url 'gamedetail' game.pk %}">Cancel</a></button>
   </div>
 </form>
 {% endblock %}

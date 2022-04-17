@@ -58,7 +58,7 @@ class GameUpdate(UpdateView):
 class GameDelete(DeleteView):
     model = Game
     fields = '__all__'
-    template_name = 'gameupdate_confirmation.html.html'
+    template_name = 'gamedelete_confirmation.html'
     success_url = '/findgame/'
 
 @login_required

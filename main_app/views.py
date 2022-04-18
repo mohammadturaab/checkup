@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponseRedirect
-from .models import Game
+from .models import Game, Member
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
@@ -81,3 +81,8 @@ def signup_view(request):
         form = RegisterUserForm()
         return render(request, 'signup.html', {'form': form})
 
+class MemberCreate(CreateView):
+    model = Member
+    fields = "__all__"
+    template_name = 'memberjoin.html'
+    success_url = '/findgame/'

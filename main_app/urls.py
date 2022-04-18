@@ -12,4 +12,7 @@ urlpatterns = [
     #LOGIN URLS
     path('accounts/signup/', views.signup_view, name="signup"),
     path('user/<username>/', views.profile, name='profile'),
+    #member join
+    path('memberjoin/', views.MemberCreate.as_view(), name="memberjoin"),
+
 ]

@@ -32,7 +32,7 @@ class FindGame(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class CreateGame(CreateView):
     model = Game
-    fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img']
+    fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img','member']
     template_name = 'creategame.html'
 
     # def get_success_url(self):

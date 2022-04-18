@@ -12,8 +12,8 @@ GAME_TYPE = {
 class Member(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE),
 
-    def __str__(self):
-        return self.user.username
+    def __init__(self):
+        return self.user
 
 
 class Game(models.Model):

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponseRedirect
-from .models import Game
+from .models import Game, Group
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
@@ -80,3 +80,14 @@ def signup_view(request):
     else:
         form = RegisterUserForm()
         return render(request, 'signup.html', {'form': form})
+     
+def GroupDetails(request, group_id):
+    group = Group.objects.get(id=group_id)
+    return render(request, 'groupdetails.html', {'group': group})
+
+class CreateGroup(CreateView):
+    model = Group
+    fields = ['title']
+    template = 'groupcreate.html'
+    success_url = '/findgame/<int:pk>'
+

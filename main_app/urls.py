@@ -13,7 +13,7 @@ urlpatterns = [
     path('accounts/signup/', views.signup_view, name="signup"),
     path('user/<username>/', views.profile, name='profile'),
     #Group URLs
-    path('groupscreate/', views.CreateGroup.as_view(), name="creategroup")
+    path('groupcreate/', views.CreateGroup.as_view(), name="creategroup"),
     path('groupdetails/', views.GroupDetails.as_view(), name="groupdetails")
 
 ]

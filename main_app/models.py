@@ -9,6 +9,9 @@ GAME_TYPE = {
     ('Soccer', 'Soccer'),
 }
 
+class Group(models.Model):
+    title = models.CharField(max_length=100)
+
 class Game(models.Model):
     title = models.CharField(max_length=100)
     game_type = models.CharField(max_length=50, choices=GAME_TYPE)

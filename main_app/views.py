@@ -80,14 +80,15 @@ def signup_view(request):
     else:
         form = RegisterUserForm()
         return render(request, 'signup.html', {'form': form})
+
+class CreateGroup(CreateView):
+    model = Group
+    fields = '__all__'
+    template_name = 'groupcreate.html'
+    success_url = '/findgame/<int:pk>'
+
      
 def GroupDetails(request, group_id):
     group = Group.objects.get(id=group_id)
     return render(request, 'groupdetails.html', {'group': group})
-
-class CreateGroup(CreateView):
-    model = Group
-    fields = ['title']
-    template = 'groupcreate.html'
-    success_url = '/findgame/<int:pk>'
 

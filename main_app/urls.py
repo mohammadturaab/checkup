@@ -14,6 +14,6 @@ urlpatterns = [
     path('user/<username>/', views.profile, name='profile'),
     #Group URLs
     path('groupcreate/', views.CreateGroup.as_view(), name="creategroup"),
-    path('groupdetails/', views.GroupDetails.as_view(), name="groupdetails")
+    path('groupdetails/<int:pk>', views.GroupDetails, name="groupdetails")
 
 ]

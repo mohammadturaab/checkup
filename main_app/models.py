@@ -12,6 +12,9 @@ GAME_TYPE = {
 class Group(models.Model):
     title = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.title
+
 class Game(models.Model):
     title = models.CharField(max_length=100)
     game_type = models.CharField(max_length=50, choices=GAME_TYPE)

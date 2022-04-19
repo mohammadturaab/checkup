@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import HttpResponseRedirect
-from .models import Game, Member
+from .models import Game
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
@@ -32,7 +32,7 @@ class FindGame(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class CreateGame(CreateView):
     model = Game
-    fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img','member']
+    fields = ['title', 'game_type', 'time', 'date', 'street', 'city', 'state', 'zip', 'img']
     template_name = 'creategame.html'
 
     # def get_success_url(self):
@@ -80,9 +80,3 @@ def signup_view(request):
     else:
         form = RegisterUserForm()
         return render(request, 'signup.html', {'form': form})
-
-class MemberCreate(CreateView):
-    model = Member
-    fields = "__all__"
-    template_name = 'memberjoin.html'
-    success_url = '/findgame/'

@@ -6,6 +6,9 @@
 <div>
     <div>
         <h3>{{ group.title }}</h3>
+        {% for members in members %}
+            <p>{{ members}}</p>
+        {%% endfor %}
     </div>
 </div>
 {% endblock %}

@@ -81,14 +81,24 @@ def signup_view(request):
         form = RegisterUserForm()
         return render(request, 'signup.html', {'form': form})
 
+@method_decorator(login_required, name='dispatch')
 class CreateGroup(CreateView):
     model = Group
     fields = '__all__'
     template_name = 'groupcreate.html'
     success_url = '/findgame/<int:pk>'
+    
+    def form_valid(self, form):
+        self.object = form.save(commit = False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('/findgame/')
 
-     
+
 def GroupDetails(request, group_id):
     group = Group.objects.get(id=group_id)
     return render(request, 'groupdetails.html', {'group': group})
+
+class JoinGroup(JoinView):
+    
 

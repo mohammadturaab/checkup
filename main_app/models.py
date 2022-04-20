@@ -11,6 +11,7 @@ GAME_TYPE = {
 
 class Group(models.Model):
     title = models.CharField(max_length=100)
+    members = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title
@@ -26,6 +27,7 @@ class Game(models.Model):
     zip = models.CharField(max_length=50)
     img = models.CharField(max_length=250, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    group = models.OneToOneField(Group, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

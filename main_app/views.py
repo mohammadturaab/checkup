@@ -99,6 +99,9 @@ def GroupDetails(request, group_id):
     group = Group.objects.get(id=group_id)
     return render(request, 'groupdetails.html', {'group': group})
 
-class JoinGroup(JoinView):
+# def GroupJoin(request, group_id):
+#     group = Group.objects.get(id=group_id)
+#     group.members.add(request.user)
+    
     
 

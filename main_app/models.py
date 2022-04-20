@@ -9,12 +9,12 @@ GAME_TYPE = {
     ('Soccer', 'Soccer'),
 }
 
-class Member(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE),
+class Group(models.Model):
+    title = models.CharField(max_length=100)
+    members = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.user.username
-
+        return self.title
 
 class Game(models.Model):
     title = models.CharField(max_length=100)
@@ -26,8 +26,8 @@ class Game(models.Model):
     state = models.CharField(max_length=50)
     zip = models.CharField(max_length=50)
     img = models.CharField(max_length=250, null=True, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE),
-    member = models.ManyToManyField(Member)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    group = models.OneToOneField(Group, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

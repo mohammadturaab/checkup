@@ -12,4 +12,9 @@ urlpatterns = [
     #LOGIN URLS
     path('accounts/signup/', views.signup_view, name="signup"),
     path('user/<username>/', views.profile, name='profile'),
+    #Group URLs
+    path('<int:pk>/groupcreate/', views.CreateGroup.as_view(), name="groupcreate"),
+    path('groupdetails/<int:group_id>', views.GroupDetails, name="groupdetails"),
+    path('joingroup/<int:group_id>', views.JoinGroup.as_view(), name="joingroup")
+
 ]

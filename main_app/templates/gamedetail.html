@@ -9,10 +9,11 @@
     <h2>Game Type: {{game.game_type}}</h2>
     <h2>Time: {{game.time}}</h2>
     <h2>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h2>
-    <h2>People Joined: </h2>
+    <h2>People Joined: {{member}} <a href="{% url 'groupdetails' game.pk %}">All Members</a></h2>
 
     <button>Join</button>
     {% if user == game.user %}
+        <button><a href="{% url 'groupcreate' game.pk %}">Allow other to Join</a></button>
         <button><a href="{% url 'gameupdate' game.pk %}">Update</a></button>
         <button><a href="{% url 'gamedelete' game.pk %}">Delete</a></button>
     {% endif %}

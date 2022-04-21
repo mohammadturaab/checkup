@@ -11,7 +11,7 @@ GAME_TYPE = {
 
 class Group(models.Model):
     title = models.CharField(max_length=100)
-    members = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    members = models.ManyToManyField(User,null=True)
 
     def __str__(self):
         return self.title

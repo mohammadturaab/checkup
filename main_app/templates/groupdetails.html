@@ -6,7 +6,7 @@
 <div>
     <div>
         <h3>{{ group.title }}</h3>
-        {% for member in members %}
+        {% for member in group.members.all %}
             <p>{{ group.members }}</p>
         {% endfor %}
 

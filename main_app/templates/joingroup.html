@@ -1,11 +1,12 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %} 
 
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit!">
-    </form>
-{% endblock %} -->
+<h1>Would you like to join {{group.title}}?</h1>
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <input type="submit" value="Confirm" />
+    <button><a href="{% url 'gamedetail' %}">Cancel</a></button>
+  </div>
+</form>
+{% endblock %}

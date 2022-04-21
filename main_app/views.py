@@ -102,6 +102,8 @@ def GroupDetails(request, group_id):
 def GroupJoin(request, group_id):
     group = Group.objects.get(id=group_id)
     group.members.add(request.user)
+    return render(request, 'joingroup.html', {'group': group})
+    
     
     
 

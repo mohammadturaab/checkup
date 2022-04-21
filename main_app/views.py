@@ -10,6 +10,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .forms import RegisterUserForm
+from django.shortcuts import redirect
 
 # Create your views here.
 class Home(TemplateView):
@@ -99,10 +100,12 @@ def GroupDetails(request, group_id):
     group = Group.objects.get(id=group_id)
     return render(request, 'groupdetails.html', {'group': group})
 
+@login_required
 def GroupJoin(request, group_id):
     group = Group.objects.get(id=group_id)
     group.members.add(request.user)
     return render(request, 'joingroup.html', {'group': group})
+    
     
     
     

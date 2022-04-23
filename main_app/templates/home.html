@@ -1,3 +1,5 @@
+{% load static %}
+
 {% extends 'base.html' %}
 
 {% block title %}
@@ -7,7 +9,7 @@
 {% block content %}
     <div class = "container-home">
 
-        {% load static %}<img class="img-fluid" src="{% static '/images/basketball1.png' %}" alt="basketball court">
+        <img class="img-fluid" src="{% static '/images/basketball1.png' %}" alt="basketball court">
         <p class="center">Playing you favorite sports just got easier.</p>
         <button class="center btn btn-dark"> 
             <a href="/findgame">Find Game</a>

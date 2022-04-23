@@ -5,6 +5,61 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Check Up</h1>
-    <img class="banner" src="https://images.pexels.com/photos/1080882/pexels-photo-1080882.jpeg?cs=srgb&dl=pexels-tim-mossholder-1080882.jpg&fm=jpg" alt="basketball court">
+    <div class = "container-home">
+
+        {% load static %}<img class="img-fluid" src="{% static '/images/basketball1.png' %}" alt="basketball court">
+        <p class="center">Playing you favorite sports just got easier.</p>
+        <button class="center btn btn-dark"> 
+            <a href="/findgame">Find Game</a>
+        </button>
+    </div>
+    <div>
+        <h2>HOW IT WORKS</h2>
+        <p>01</p>
+        <p>Sign Up</p>
+        <p>02</p>
+        <p>Set up a game</p>
+        <p>03</p>
+        <p>Wait for player to join</p>
+    </div>
+      <div class="card-group">
+        <div class="card">
+          <img src="{% static '/images/basketball3.jpeg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"><a href="#" class="btn btn-primary">Basketball</a></p>
+          </div>
+        </div>
+        <div class="card">
+            <img src="{% static '/images/football1.jpeg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text"><a href="#" class="btn btn-primary">Football</a></p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="{% static '/images/soccer.jpeg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text"><a href="#" class="btn btn-primary">Soccer</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+            <div class="card">
+              <img src="{% static '/images/tennis1.jpeg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text"><a href="#" class="btn btn-primary">Tennis</a></p>
+              </div>
+            </div>
+            <div class="card">
+                <img src="{% static '/images/volleyball1.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text"><a href="#" class="btn btn-primary">Volleyball</a></p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="{% static '/images/baseball.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text"><a href="#" class="btn btn-primary">Baseball</a></p>
+                </div>
+              </div>
+            </div>
 {% endblock %}

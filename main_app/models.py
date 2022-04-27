@@ -24,7 +24,7 @@ class Game(models.Model):
     street = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
-    zip = models.CharField(max_length=50)
+    zip = models.IntegerField()
     img = models.CharField(max_length=250, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     group = models.OneToOneField(Group, on_delete=models.CASCADE, null=True)

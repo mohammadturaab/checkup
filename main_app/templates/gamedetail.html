@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="d-flex justify-content-center">
+            <span>
+                <h1>Pickup: {{game.game_type}}</h1>
+                <img src="{{game.img}}"/>
+            </span>
+        <span>
+            <h1>Game Details</h1>
+            <h2>{{title}}</h2>
+            <h2>Game Type: {{game.game_type}}</h2>
+            <h2>Time: {{game.time}}</h2>
+            <h2>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h2>
+            <h2>People Joined: {{groups.members.count}} <a href="{% url 'groupdetails' game.group.pk %}">All Members</a></h2>
 
-    <h1>Pickup: {{game.game_type}}</h1>
-    <img class="banner" src="{{game.img}}"/>
-    <h1>Game Details</h1>
-    <h2>{{title}}</h2>
-    <h2>Game Type: {{game.game_type}}</h2>
-    <h2>Time: {{game.time}}</h2>
-    <h2>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h2>
-    <h2>People Joined: {{groups.members.count}} <a href="{% url 'groupdetails' game.pk %}">All Members</a></h2>
-
-    <button><a href="{% url 'joingroup' game.group.pk %}">Join</a></button>
-    {% if user == game.user %}
-        <button><a href="{% url 'groupcreate' game.pk %}">Allow other to Join</a></button>
-        <button><a href="{% url 'gameupdate' game.pk %}">Update</a></button>
-        <button><a href="{% url 'gamedelete' game.pk %}">Delete</a></button>
-    {% endif %}
+            <button class="btn btn-primary"><a class = "text-light text-decoration-none" href="{% url 'joingroup' game.group.pk %}">Join</a></button>
+            {% if user == game.user %}
+                <button class="btn btn-success"><a class = "text-light text-decoration-none" href="{% url 'groupcreate' game.pk %}">Allow other to Join</a></button>
+                <button class="btn btn-secondary"><a class = "text-light text-decoration-none" href="{% url 'gameupdate' game.pk %}">Update</a></button>
+                <button class="btn btn-danger"><a class = "text-light text-decoration-none" href="{% url 'gamedelete' game.pk %}">Delete</a></button>
+            {% endif %}
+        </span>
+</div>
 {% endblock %}

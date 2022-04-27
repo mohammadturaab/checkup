@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="d-flex justify-content-center">
-            <span>
-                <h1>Pickup: {{game.game_type}}</h1>
-                <img src="{{game.img}}"/>
-            </span>
+ <div class="d-flex justify-content-center"> 
+<div class="container">
+    <div class="row">
+    <div class="col-sm">
+        <span>
+            <h1>Pickup: {{game.game_type}}</h1>
+            <img src="{{game.img}}"/>
+        </span>
+    </div>
+    <div class="col-sm">
         <span>
             <h1>Game Details</h1>
             <h2>{{title}}</h2>
@@ -21,5 +26,8 @@
                 <button class="btn btn-danger"><a class = "text-light text-decoration-none" href="{% url 'gamedelete' game.pk %}">Delete</a></button>
             {% endif %}
         </span>
+    </div>
+    </div>
+    </div>
 </div>
 {% endblock %}

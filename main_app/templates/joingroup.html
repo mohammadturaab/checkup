@@ -5,8 +5,10 @@
 <form method="post">
   {% csrf_token %}
   <div>
-    <input type="submit" value="Confirm" />
-    <button><a href="{% url 'findgame' %}">Cancel</a></button>
+    <input class="btn btn-primary" type="submit" value="Confirm" />
+    <button class="btn btn-secondary"><a class="text-decoration-none text-light" href="{% url 'findgame' %}">Cancel</a></button>
+    <p class="lead">After you click join, click Done</p>
+    <button class="btn btn-success"><a class="text-decoration-none text-light" href="/findgame">Done</a></button>
   </div>
 </form>
 {% endblock %}

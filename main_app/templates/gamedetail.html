@@ -17,9 +17,13 @@
             <h2>Game Type: {{game.game_type}}</h2>
             <h2>Time: {{game.time}}</h2>
             <h2>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h2>
-            <h2>People Joined: {{groups.members.count}} <a href="{% url 'groupdetails' game.group.pk %}">All Members</a></h2>
+            {% if game.group %}
+            <a class = "btn btn-dark text-light text-decoration-none" href="{% url 'groupdetails' game.group.pk %}">All Members</a>
+            {% endif %}
 
+            {% if game.group %}
             <button class="btn btn-primary"><a class = "text-light text-decoration-none" href="{% url 'joingroup' game.group.pk %}">Join</a></button>
+            {% endif %}
             {% if user == game.user %}
                 <button class="btn btn-success"><a class = "text-light text-decoration-none" href="{% url 'groupcreate' game.pk %}">Allow other to Join</a></button>
                 <button class="btn btn-secondary"><a class = "text-light text-decoration-none" href="{% url 'gameupdate' game.pk %}">Update</a></button>

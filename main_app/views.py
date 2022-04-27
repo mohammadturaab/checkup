@@ -8,6 +8,7 @@ from django.views.generic import DetailView
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.urls import reverse
 from .forms import RegisterUserForm
 
 

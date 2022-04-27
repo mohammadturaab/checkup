@@ -12,6 +12,7 @@ ________________________________________________________________________________
   <li>As a user, I want to be able to edit games I created</li>
   <li>As a user, I want to be able to join games</li>
   <li>As a user, I want to be able to filter/search games</li>
+  sdfsdf
   <li>As a user, I want to be able to view the games I have joined</li>
 </ul>
 

@@ -8,5 +8,7 @@
     <input type="submit" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
     </form>
+    <p class="lead">Don't have an account Sign Up Now!</p>
+    <button class="btn btn-secondary"><a class = "text-light text-decoration-none" href="{% url 'signup' %}">Sign Up</a></button>
 
 {% endblock %}

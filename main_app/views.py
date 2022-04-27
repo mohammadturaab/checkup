@@ -22,7 +22,7 @@ class FindGame(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         zip = self.request.GET.get("zip")
-        if zip != None & int(zip):
+        if zip != None:
             context["games"] = Game.objects.filter(zip__icontains=zip)
             context["header"] = f"Searching for games near {zip}" 
         else:

@@ -8,16 +8,17 @@
 
 {% block content %}
     <div class = "container-home">
-
-        <img class="img-fluid" src="{% static '/images/basketball1.png' %}" alt="basketball court">
-        <p class="text-center">Playing you favorite sports just got easier.</p>
+        <img class="img-fluid w-75 p-3 mx-auto d-block" src="{% static '/images/basketball1.png' %}" alt="basketball court">
+        <p class="text-center display-4 text-wrap">Playing your favorite sports just got easier.</p>
         <div class="text-center">
             <button class="btn btn-success"> 
                 <a href="/findgame" class = "text-light text-decoration-none">Find Game</a>
             </button>
         </div>
     </div>
-    <div class="card-deck">
+    <div class="container mx-auto mt-4">
+    <div class="row">
+    <div class="card-deck col-md-4">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Step 1</h5>
@@ -26,6 +27,8 @@
             </p>
           </div>
         </div>
+        </div>
+        <div class="col-md-4">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Step 2</h5>
@@ -34,13 +37,17 @@
             </p>
           </div>
         </div>
+    </div>
+        <div class="col-md-4">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Step 3</h5>
             <p class="card-text">Get ready for other CheckUp member to join your game.</p>
           </div>
         </div>
-      </div>
+    </div>
+    </div>
+</div>
 {% endblock %}
 
 <!-- Make an account with CheckUp to register for games, setup your own, and share available slots with your fiends

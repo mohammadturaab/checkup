@@ -6,9 +6,9 @@
   {% csrf_token %}
   <div>
    <!-- confirm cat delete -->
-    <input type="submit" value="Confirm" />
+    <input class="btn btn-danger" type="submit" value="Confirm" />
     <!-- Redirect back to detail on cancel -->
-    <button><a href="{% url 'gamedetail' game.pk %}">Cancel</a></button>
+    <button class="btn btn-primary"><a class = "text-light text-decoration-none" href="{% url 'gamedetail' game.pk %}">Cancel</a></button>
   </div>
 </form>
 {% endblock %}

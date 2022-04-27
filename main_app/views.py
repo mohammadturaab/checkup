@@ -10,7 +10,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .forms import RegisterUserForm
-from django.shortcuts import redirect
+
 
 # Create your views here.
 class Home(TemplateView):

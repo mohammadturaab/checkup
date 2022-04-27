@@ -1,5 +1,5 @@
 # Check Up
-
+<h3> CheckUp is a website dedicated to bringing athletes together from around the world. With CheckUp, users can schedule pick up games for basketball, football, baseball, or volleyball, and find local players who are interested in playing. Now, users who want a quick game of basketball can find a full team all through the use of one application. </h3>
 <h2>User Story</h2>
 ________________________________________________________________________________________________________________________
 <ul>

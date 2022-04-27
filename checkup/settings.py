@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-# if not os.environ.get('PRODUCTION'):
-#     from dotenv import load_dotenv
-#     load_dotenv()
+if not os.environ.get('PRODUCTION'):
+    from dotenv import load_dotenv
+    load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +24,10 @@ STATIC_ROOT = BASE_DIR / 'static'
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m%*9qsejj2^cv7gvwnp8ejoilice9*r+w0y$&_h1cywpl3j$-='
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+
+
+# 'django-insecure-m%*9qsejj2^cv7gvwnp8ejoilice9*r+w0y$&_h1cywpl3j$-='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #for production, true for development

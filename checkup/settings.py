@@ -27,9 +27,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 SECRET_KEY = 'django-insecure-m%*9qsejj2^cv7gvwnp8ejoilice9*r+w0y$&_h1cywpl3j$-='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #for production, true for development
+DEBUG = False #for production, true for development
 
-# ALLOWED_HOSTS = ['https://check---up.herokuapp.com/', '*']
+ALLOWED_HOSTS = ['https://check---up.herokuapp.com/', '*']
 
 
 # Application definition
@@ -130,5 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/findgame/'
 LOGOUT_REDIRECT_URL = '/'
 
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())

@@ -8,22 +8,31 @@
     <h1>Find Game</h1>
     <form>
         <div>
-            <input type="text" name="zip" placeholder="search"/>
+            <input type="text" name="zip" placeholder="zip code"/>
             <!-- <input type="submit" value="Search"/> -->
-            <button type="submit" value="Search">Search</button>
+            <button class="btn btn-secondary" type="submit" value="Search">Search</button>
+            <button class="btn btn-secondary"><a class = "text-light text-decoration-none" href="{% url 'findgame' %}">Clear Search</a></button>
+            <button class="btn btn-secondary"><a class = "text-light text-decoration-none" href="{% url 'creategame' %}">Add Game</a></button>
         </div>
-            <button><a href="{% url 'findgame' %}">Clear Search</a></button>
-            <button><a href="{% url 'creategame' %}">Add Game</a></button>
     </form>
     <h2>{{header}}</h2>
+    <div class="container mx-auto mt-4">
+        <div class="row">
     {% for game in games %}
-        <img src="{{game.img}}"/>
-        <h3>{{game.title}}</h3>
-        <h3>{{game.game_type}}</h3>
-        <h3>{{game.date}} at {{game.time}}</h3>
-        <h3>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h3>
-        <h3>Created by: {{game.user.username}}</h3>
-        <button><a href="{% url 'gamedetail' game.pk %}">Details</a></button>
-        <br>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top img-thumbnail img-fluid" src="{{game.img}}"/>
+                <div class="card-body">
+                    <p class="card-title">{{game.title}}</p>
+                    <p class="card-text">{{game.game_type}}</p>
+                    <p class="card-text">{{game.date}} at {{game.time}}</p>
+                    <p class="card-text">Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</p>
+                    <p class="card-text">Created by: {{game.user.username}}</p>
+                    <button class="btn btn-secondary"><a class = "text-light text-decoration-none" href="{% url 'gamedetail' game.pk %}">Details</a></button>
+                </div>
+            </div>
+        </div>
     {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -10,58 +10,39 @@
     <div class = "container-home">
 
         <img class="img-fluid" src="{% static '/images/basketball1.png' %}" alt="basketball court">
-        <p class="center">Playing you favorite sports just got easier.</p>
-        <button class="center btn btn-dark"> 
-            <a href="/findgame">Find Game</a>
-        </button>
+        <p class="text-center">Playing you favorite sports just got easier.</p>
+        <div class="text-center">
+            <button class="btn btn-success"> 
+                <a href="/findgame" class = "text-light text-decoration-none">Find Game</a>
+            </button>
+        </div>
     </div>
-    <div>
-        <h2>HOW IT WORKS</h2>
-        <p>01</p>
-        <p>Sign Up</p>
-        <p>02</p>
-        <p>Set up a game</p>
-        <p>03</p>
-        <p>Wait for player to join</p>
-    </div>
-      <div class="card-group">
+    <div class="card-deck">
         <div class="card">
-          <img src="{% static '/images/basketball3.jpeg' %}" class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text"><a href="#" class="btn btn-primary">Basketball</a></p>
+            <h5 class="card-title">Step 1</h5>
+            <p class="card-text">
+                Make an account with CheckUp to register for games, setup your own, and share available slots with your fiends.
+            </p>
           </div>
         </div>
         <div class="card">
-            <img src="{% static '/images/football1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text"><a href="#" class="btn btn-primary">Football</a></p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="{% static '/images/soccer.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text"><a href="#" class="btn btn-primary">Soccer</a></p>
-            </div>
+          <div class="card-body">
+            <h5 class="card-title">Step 2</h5>
+            <p class="card-text">
+                Ready to play a game? Fill ou the game form and start finding players near you.
+            </p>
           </div>
         </div>
-        <div class="card-group">
-            <div class="card">
-              <img src="{% static '/images/tennis1.jpeg' %}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text"><a href="#" class="btn btn-primary">Tennis</a></p>
-              </div>
-            </div>
-            <div class="card">
-                <img src="{% static '/images/volleyball1.jpeg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text"><a href="#" class="btn btn-primary">Volleyball</a></p>
-                </div>
-              </div>
-              <div class="card">
-                <img src="{% static '/images/baseball.jpeg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text"><a href="#" class="btn btn-primary">Baseball</a></p>
-                </div>
-              </div>
-            </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Step 3</h5>
+            <p class="card-text">Get ready for other CheckUp member to join your game.</p>
+          </div>
+        </div>
+      </div>
 {% endblock %}
+
+<!-- Make an account with CheckUp to register for games, setup your own, and share available slots with your fiends
+Ready to play a game? Fill ou the game form and start finding players near you.
+Get ready for other CheckUp member to join your game -->

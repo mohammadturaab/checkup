@@ -16,7 +16,7 @@
                             <h3>{{game.game_type}}</h3>
                             <h3>{{game.date}} at {{game.time}}</h3>
                             <h3>Location: {{game.street}}, {{game.city}}, {{game.state}}, {{game.zip}}</h3>
-                            <button><a href="{% url 'gamedetail' game.pk %}">Details</a></button>
+                            <button class="btn btn-dark"><a class = "text-light text-decoration-none" href="{% url 'gamedetail' game.pk %}">Details</a></button>
                         </div>
                 </div>
         </div>
